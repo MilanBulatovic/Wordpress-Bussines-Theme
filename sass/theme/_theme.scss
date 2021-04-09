@@ -1,0 +1,251 @@
+// Media Queries
+$sm: 767.98px;
+$md: 991.98px;
+$lg: 1221.98px;
+$xl: 1399.98px;
+
+
+//Global
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.container-custom {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+//NAVIGATION
+#wrapper-navbar {
+    #main-nav {
+        background: $white;
+        //height: 100px;
+        box-sizing: border-box;
+        width: 100%;
+        padding:25px 0;
+
+        .navbar-collapse {
+            //z-index: 5;
+
+            .navbar-nav {
+                @media (max-width: $md) {
+                    padding-top:20px;
+                }
+            
+                li {
+                    transition: all 0.2s ease-in-out;
+                    &:hover {
+                        color: $primary;
+                    }
+                   
+                    .nav-link {
+                        font-size: 1.2rem;
+                        font-weight:600;
+                        color: $menu;
+                        transition: all 0.2s ease-in-out;
+                        padding-right: 1.5rem;
+                        padding-left: 1.5rem;
+                        position: relative;
+                        
+                        @media (max-width: $lg) {
+                            font-size: 1.1rem;
+                            padding-right: 0.9rem;
+                            padding-left: 0.9rem;
+                        }
+                        &:hover {
+                            color: $primary;
+                        }
+                    }
+
+                    [aria-current] {
+                        color: $primary;
+                        border-bottom: 2px solid $primary;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-toggler {
+        i {
+            color: $primary;
+        }
+    }
+}
+
+//HERO SLIDER
+#full-width-page-wrapper {
+    padding:0;
+    overflow: hidden;
+}
+
+//ABOUT US HOME PAGE
+#about-us {
+    padding: 50px 0;
+
+    .animate-entry {
+        opacity:0;
+        transform:translateX(1000px);
+        transition: all 0.5s ease-in-out;
+
+        h1 {
+            color: $primary;
+            font-weight: 700;
+        }
+    
+        p {
+            color: grey;
+            font-weight: 400;
+            font-size: 16px;
+        }
+    
+        .custom-button {
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 13px 0;
+            border-bottom: 2px solid lightgray;
+    
+            &::after {
+                content: "";
+                height: 2px;
+                position: relative;
+                top: 10px;
+                width: 100%;
+                z-index: 5;
+                display: block;
+                transition: all 0.2s ease-in-out;
+                transform: translateX(100px);
+                opacity:0;
+                //transform: scale(0);
+            }
+    
+            &:hover {
+                &::after {
+                    background: $primary;
+                    //transform: scale(1);
+                    transform: translateX(0);
+                    opacity:1;
+                }
+            }
+        }
+
+       
+    }
+    .entry-content {
+        transform:translateX(0) !important;
+        opacity:1 !important;
+    }
+}
+
+//INVESTMENTS HOME PAGE
+#investment {
+    background-color: lighten(lightgrey, 15%);
+    background-image: url('../img/bg-invest.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+    p {
+        text-transform: uppercase;
+        color: gray;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-weight: 700;
+        margin-bottom: 70px;
+        color: $primary;
+    }
+
+    .drop-in {
+        transform: translateY(-350px);
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        @media (max-width: $md) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .test {
+            padding: 25px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            //font-size: 26px;
+             &:hover {
+                background: white;
+            }
+            @media (max-width: $md) {
+                width: 50%;
+            }
+
+            .icon {
+                margin-bottom: 30px;
+                width: 50%;
+            }
+        }
+    }
+    .visible {
+        transform: translateY(0);
+        visibility: visible;
+    }
+    @for $i from 1 through 6 {
+        .drop-in:nth-child(#{$i}n) {
+            transition-delay: #{$i * 0.2}s;
+        }
+    }
+}
+
+//FOOTER
+#wrapper-footer {
+    width: 100%;
+    background-color: $primary;
+    height:100px;
+    padding:0;
+    color: white;
+    position: relative;
+    .align {
+        &.end {
+            margin-top: -7px;
+        }
+        @media (max-width: $md) {
+            position:absolute;
+            &.end {
+                right: 1%;
+                top: 0;
+            }
+            &.start {
+                position: absolute;
+                left: 1%;
+                top: 1%;
+            }
+            &.down {
+                top: 25%;
+            }
+            
+        }
+        
+    }
+    .end {
+        border: 7px solid $primary;
+        border-radius: 100%;
+    }
+}
+
+button.amazingsliderbutton.as-btn-white-medium {
+    background: $primary;
+    color: white;
+    padding: 5px 20px;
+}

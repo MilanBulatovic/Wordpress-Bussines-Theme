@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<header class="page-header">
 
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'understrap' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Coming soon...', 'understrap' ); ?></h1>
 
 	</header><!-- .page-header -->
 
@@ -37,15 +37,15 @@ defined( 'ABSPATH' ) || exit;
 				'<p>%s<p>',
 				esc_html__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'understrap' )
 			);
-			get_search_form();
+			//get_search_form();
 
 		else :
 
 			printf(
 				'<p>%s<p>',
-				esc_html__( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'understrap' )
+				esc_html__( 'Workin on it...', 'understrap' )
 			);
-			get_search_form();
+			//get_search_form();
 
 		endif;
 		?>

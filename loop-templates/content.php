@@ -1,6 +1,6 @@
 <?php
 /**
- * Post rendering content according to caller of get_template_part
+ * Blog Post page template /Media center
  *
  * @package UnderStrap
  */
@@ -9,48 +9,44 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<div class="col-lg-4 col-md-6">
+	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header">
+		<div class="thumbnail-holder" 
+			<?php if ( has_post_thumbnail() ) : ?>
+				style="background-image:url(<?php echo get_the_post_thumbnail_url(); ?>);">
+			<?php endif; ?>
+		</div>
 
-		<?php
-		the_title(
-			sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-			'</a></h2>'
-		);
-		?>
+		<header class="date-title">
 
-		<?php if ( 'post' === get_post_type() ) : ?>
+			<?php if ( 'post' === get_post_type() ) : ?>
 
-			<div class="entry-meta">
-				<?php understrap_posted_on(); ?>
-			</div><!-- .entry-meta -->
+				<div class="date">
+					<?php echo get_the_date('d. m. Y.'); ?>
+				</div><!-- .entry-meta -->
 
-		<?php endif; ?>
+			<?php endif; ?>
 
-	</header><!-- .entry-header -->
+			<?php
+				the_title(
+					sprintf( '<h2 class="post-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
+					'</a></h2>'
+				);
+			?>
 
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+		</header><!-- .entry-header -->
 
-	<div class="entry-content">
+		<div class="excerpt">
+			<?php the_excerpt(); ?>
+		</div><!-- excerpt -->
 
-		<?php the_excerpt(); ?>
+		<!-- <footer class="entry-footer"> -->
 
-		<?php
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
+			<?php //understrap_entry_footer(); ?>
 
-	</div><!-- .entry-content -->
+		<!-- </footer> -->
 
-	<footer class="entry-footer">
-
-		<?php understrap_entry_footer(); ?>
-
-	</footer><!-- .entry-footer -->
-
-</article><!-- #post-## -->
+	</article><!-- #post-## -->
+	
+</div>

@@ -1,5 +1,5 @@
 # Wordpress-Bussines-Theme
-Wordpress Business Theme - practice
+Wordpress Business Theme - personal project
 
 Wordpres bussines site created for fun. Fully dynamic - No builders.
 

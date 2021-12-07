@@ -1,7 +1,7 @@
 # Wordpress-Bussines-Theme
 Wordpress Business Theme - personal project
 
-Fully dynamic - No builders.
+ACF Fully dynamic - No builders.
 
 Link for preview - http://business-theme.great-site.net/
 
